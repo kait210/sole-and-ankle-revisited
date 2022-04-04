@@ -29,7 +29,7 @@ const SuperHeader = () => {
 const MobileRule = styled.hr`
   display: none;
 
-  @media ${QUERIES.phoneAndDown} {
+  @media ${QUERIES.tabletAndDown} {
     display: revert;
     background: ${COLORS.gray[900]};
     margin-top: 0;
@@ -48,7 +48,7 @@ const Wrapper = styled.div`
   padding-left: 32px;
   padding-right: 32px;
 
-  @media ${QUERIES.phoneAndDown} {
+  @media ${QUERIES.tabletAndDown} {
     display: none;
   }
 `;
