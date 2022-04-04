@@ -6,21 +6,36 @@ import { COLORS } from '../../constants';
 import SearchInput from '../SearchInput';
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
+import { QUERIES } from '../../constants';
 
 const SuperHeader = () => {
   return (
-    <Wrapper>
-      <MarketingMessage>
-        Free shipping on domestic orders over $75!
-      </MarketingMessage>
-      <SearchInput />
-      <HelpLink href="/help">Help</HelpLink>
-      <UnstyledButton>
-        <Icon id="shopping-bag" strokeWidth={1} />
-      </UnstyledButton>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <MarketingMessage>
+          Free shipping on domestic orders over $75!
+        </MarketingMessage>
+        <SearchInput />
+        <HelpLink href="/help">Help</HelpLink>
+        <UnstyledButton>
+          <Icon id="shopping-bag" strokeWidth={1} />
+        </UnstyledButton>
+      </Wrapper>
+      <MobileRule />
+    </>
   );
 };
+
+const MobileRule = styled.hr`
+  display: none;
+
+  @media ${QUERIES.phoneAndDown} {
+    display: revert;
+    background: ${COLORS.gray[900]};
+    margin-top: 0;
+    height: 4px;
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,6 +47,10 @@ const Wrapper = styled.div`
   height: 40px;
   padding-left: 32px;
   padding-right: 32px;
+
+  @media ${QUERIES.phoneAndDown} {
+    display: none;
+  }
 `;
 
 const MarketingMessage = styled.span`
