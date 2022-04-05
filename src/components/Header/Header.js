@@ -50,13 +50,18 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
+  height: 100%;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow: auto;
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(
+    1rem,
+    6vw - 2rem,
+    5rem
+  );
   margin: 0px 48px;
 
   @media ${QUERIES.tabletAndDown} {
